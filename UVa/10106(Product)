@@ -1,0 +1,140 @@
+/*
+  snippet list :
+  cpp       addstring     multistring   
+  binsrc    isprime       seive
+
+*/
+#include<bits/stdc++.h>
+#define   fasterIO         ios::sync_with_stdio(0); cin.tie(0);
+#define   pb               push_back
+#define   all(x)           (x).begin(), (x).end()
+#define   nl               "\n"
+#define   testcase         {ll t;cin>>t;while(t--){slove();}}
+#define   Bismillah        int main()
+#define   sublime          code();
+#define   YES              cout<<"YES"<<nl;
+#define   NO               cout<<"NO"<<nl;
+#define   Yes              cout<<"Yes"<<nl;
+#define   No               cout<<"No"<<nl;
+#define   maxi             10000000
+#define   mod              1000000000
+#define   first            it->first
+#define   second           it->second
+
+typedef long long ll;
+typedef long long ll;
+typedef unsigned long long ull;
+using namespace std;
+
+void code()
+{
+    ios::sync_with_stdio(0); cin.tie(0);
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+}
+string divstring(string n,int div)
+{
+  string ans;
+  int i = 0;
+  int x = n[i] - '0' ;
+  i++;
+  while(x<div&&i<n.size())
+  {
+    x *= (10 + (n[i] - '0')) ;
+    i++;
+  }
+  int carry = 0;
+  
+  return ans;
+}
+string add(string a,string b)
+{
+   int carry = 0 ;
+   string ans ;
+   while(!a.empty()&&!b.empty())
+   {
+      int x = a.back() - '0' + b.back() - '0' + carry;
+       ans.push_back(x%10 + '0');
+       carry = x/10 ;
+       a.pop_back();
+       b.pop_back();
+   }
+     while(!a.empty())
+     {
+         int x = a.back() - '0' +carry ;
+         ans.push_back(x%10 + '0');
+         carry = x/10 ;
+         a.pop_back();
+     }
+
+   while(!b.empty())
+   {
+    int x = b.back() - '0' +carry ;
+       ans.push_back(x%10 + '0');
+       carry = x/10 ;
+       b.pop_back();
+   }
+   if(carry)
+    ans.push_back(carry+'0') ;
+   reverse(all(ans));
+   return ans ;
+}
+
+string multi(string a,string b)
+{
+  
+  string main_ans;
+  int i =0 ;
+  while(!b.empty())
+  {
+    string ans;
+    int x =b.back()-'0',carry = 0 ;
+    if(x!=0)
+   for(int j = a.size()-1;j>=0;j--)
+   {
+      int y = a[j] -'0' ;
+      y *=x ;
+      y+=carry ;
+      ans.pb(y%10 +'0') ;
+      carry = y/10 ;
+   }
+   if(carry)
+    ans.pb(carry +'0') ;
+  reverse(all(ans));
+
+  for(int j= 0 ;j<i;j++)
+      ans.pb(0+'0') ; 
+
+  main_ans  = add(main_ans,ans);
+ // cout<<main_ans<<nl;
+ 
+  b.pop_back() ;
+
+  i++;
+ }
+  return main_ans ;
+}
+
+void slove()
+{ 
+  string a,b;
+  while(cin>>a>>b)
+  {
+    string ans =  multi(a,b);
+    if(ans=="")
+      cout<<0<<nl;
+    else
+    cout<<ans<<nl;
+  }
+}
+
+Bismillah
+{
+    
+      sublime
+     slove();
+     //testcase
+    return 0;
+}
