@@ -1,0 +1,101 @@
+/*
+  snippet list :
+  cpp       addstring     multistring   
+  binsrc    isprime       seive
+
+*/
+#include<bits/stdc++.h>
+#define   fasterIO         ios::sync_with_stdio(0); cin.tie(0);
+#define   pb               push_back
+#define   all(x)           (x).begin(), (x).end()
+#define   nl               "\n"
+#define   testcase         {ll t;cin>>t;while(t--){slove();}}
+#define   Bismillah        int main()
+#define   sublime          code();
+#define   YES              cout<<"YES"<<nl;
+#define   NO               cout<<"NO"<<nl;
+#define   Yes              cout<<"Yes"<<nl;
+#define   No               cout<<"No"<<nl;
+#define   maxi             10000000
+#define   mod              1000000000
+#define   first            it->first
+#define   second           it->second
+
+typedef long long ll;
+typedef long long ll;
+typedef unsigned long long ull;
+using namespace std;
+
+//pow,gcd,lcm,bigmod,binasearch,modinverse function 
+
+bool prime[maxi+2];
+ll Prime[maxi+2];
+void seive()
+{
+    memset(prime, true, sizeof(prime));
+    prime[0] =  false ;
+    prime[1] = true ;
+    for(int p=2; p*p<=maxi+2; p++)
+        if(prime[p]==true)
+            for(int i=p*p; i<=maxi+2; i+=p)
+                prime[i]=false;
+    ll x = 0;
+    for(int i=0;i<=maxi+2;i++)
+    {
+        if(prime[i])
+        {
+            x++;
+            Prime[i] = x;
+        }
+        else
+            Prime[i] = x;
+    }
+}
+void code()
+{
+    fasterIO
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+}
+
+void slove()
+{ 
+  string s;
+  while(cin>>s)
+  {
+    ll sum = 0;
+    ll x = 0; 
+    for (int i = 0; i < s.size(); ++i)
+    {
+        if(s[i]>='a'&&s[i]<='z')
+        {
+            x = s[i] - 'a' ;
+            x ++;
+            sum+=x;
+        }
+        else if(s[i]>='A'&&s[i]<='Z')
+        {
+            x = s[i] - 'A' ;
+            x +=27;
+            sum+=x;
+        }
+    }
+   // cout<<sum<<nl;
+    if(prime[sum])
+        cout<<"It is a prime word."<<nl;
+    else
+        cout<<"It is not a prime word."<<nl;
+  }
+}
+
+Bismillah
+{
+    
+      sublime
+      seive();
+      slove();
+    // testcase
+    return 0;
+}
